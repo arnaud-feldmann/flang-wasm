@@ -11,6 +11,13 @@ jobs:
       contents: read
       packages: write
     steps:
+      - name: Add swap
+        run: |
+            sudo fallocate -l 8G /swapfile
+            sudo chmod 600 /swapfile
+            sudo mkswap /swapfile
+            sudo swapon /swapfile
+            free -h
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Log in to the GitHub Container registry
