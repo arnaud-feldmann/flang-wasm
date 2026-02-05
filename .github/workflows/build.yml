@@ -13,10 +13,10 @@ jobs:
     steps:
       - name: Add swap
         run: |
-            sudo fallocate -l 8G /swapfile
-            sudo chmod 600 /swapfile
-            sudo mkswap /swapfile
-            sudo swapon /swapfile
+            sudo fallocate -l 8G /extraswapfile
+            sudo chmod 600 /extraswapfile
+            sudo mkswap /extraswapfile
+            sudo swapon /extraswapfile
             free -h
       - name: Checkout repository
         uses: actions/checkout@v4
